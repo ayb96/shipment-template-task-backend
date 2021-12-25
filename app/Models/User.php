@@ -23,6 +23,10 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'password',
     ];
+    public function shipments()
+    {
+        return $this->hasMany(Shipment::class, 'user_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
